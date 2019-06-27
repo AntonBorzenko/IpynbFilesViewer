@@ -1,0 +1,21 @@
+{
+  "manifest_version": 2,
+  "name": "IpynbFilesViewer",
+  "version": "1.0.1",
+  "description": "With this plugin you can use your browser as .ipynb files viewer",
+  "author": "Anton Borzenko",
+
+  "permissions": [
+      "webRequest",
+      "webRequestBlocking",
+      "<all_urls>",
+      "background",
+      "downloads"
+  ],
+  "background": {
+    "scripts": ["ipynbHandler.js"]
+  },
+  "browser_action": {
+    "default_icon": "icon.png"
+  }
+}
