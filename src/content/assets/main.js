@@ -10,7 +10,6 @@ function getDocument( url, callback ) {
     
 	xhr.onreadystatechange = function() { // (3)
         if (xhr.readyState != 4) return;
-        console.log(xhr);
         if (xhr.status == 0 || xhr.status == 200 || xhr.status == 304 ) {
             callback(null, xhr.responseText);
         } else {
@@ -75,6 +74,18 @@ function getRequestParam(parameterName) {
     return result;
 }
 
+function appendSearchToUrl(url, search) {
+    let a = document.createElement('a');
+    a.href = url;
+    if (a.search.length < 2) {
+        a.search = search;
+    }
+    else {
+        a.search += '&' + search;
+    }
+    return a.href;
+}
+
 function main() {
     var filename = getRequestParam('file');
     if (filename) {
@@ -90,6 +101,8 @@ function main() {
             }
             catch (e) {
                 alert('The current file is not parsable');
+                window.location = appendSearchToUrl(filename, 'ipynb-watch=false');
+                return;
             }
             showIpynb(ipynbObject);
             enableDownloadButton();

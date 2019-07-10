@@ -15,8 +15,8 @@ function isIpynbFile(details) {
         return false;
     }
     
-    var contentType = details.responseHeaders.filter(obj => obj.name.toLowerCase() === 'content-type');
-    contentType = contentType.length > 0 ? contentType[0].value : 'text/html';
+    var contentType = details.responseHeaders ? details.responseHeaders.filter(obj => obj.name.toLowerCase() === 'content-type') : '';
+    contentType = contentType ? contentType[0].value : 'text/html';
     contentType = contentType.toLowerCase().split(';')[0].trim();
     if ( avaliableContentTypes.indexOf(contentType) === -1 ) {
         return false;
@@ -36,6 +36,10 @@ chrome.webRequest.onHeadersReceived.addListener(
         if (!isIpynbFile(details)) {
             return;
         }
+        
+        if (details.url.indexOf('ipynb-watch=false') !== -1) {
+            return;
+        }
         var viewerUrl = getViewerURL(details.url);
         return {
             redirectUrl: viewerUrl
@@ -50,7 +54,10 @@ chrome.webRequest.onHeadersReceived.addListener(
 
 chrome.webRequest.onBeforeRequest.addListener(
   function(details) {
-
+    if (details.url.indexOf('ipynb-watch=false') !== -1) {
+        return false;
+    }
+    
     var viewerUrl = getViewerURL(details.url);
 
     return { redirectUrl: viewerUrl, };
