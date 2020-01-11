@@ -61,6 +61,16 @@ function showIpynb(ipynbObject) {
     Prism.highlightAll();
 }
 
+function enableStdoutToggles() {
+    function toggleElement(event) {
+        this.classList.toggle('opened');
+    }
+    
+    document.querySelectorAll('.nb-stdout').forEach(function (outputElem) {
+        outputElem.addEventListener('click', toggleElement);
+    });
+}
+
 function getRequestParam(parameterName) {
     var result = null,
         tmp = [];
@@ -106,6 +116,7 @@ function main() {
             }
             showIpynb(ipynbObject);
             enableDownloadButton();
+            setTimeout(enableStdoutToggles);
         });
     }
     else {

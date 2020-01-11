@@ -77,3 +77,10 @@ div[style="max-height:1000px;max-width:1500px;overflow:auto;"] {
     max-height: none !important;    
 }
 
+.nb-stdout {
+    max-height: 260px;
+}
+
+.nb-stdout.opened {
+    max-height: initial;
+}
