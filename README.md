@@ -5,6 +5,9 @@ With this plugin you can use your browser as .ipynb files viewer
 ![Example](example.png)
 
 ## How to use
+### Install on [Chrome Web Store page](https://chrome.google.com/webstore/detail/ipynbfilesviewer/iohfdefnnffaejpacklikjbjhnfcmbej)
+
+#### Or:
 1. Clone repository
 
 ` git clone https://github.com/AntonBorzenko/IpynbFilesViewer `
