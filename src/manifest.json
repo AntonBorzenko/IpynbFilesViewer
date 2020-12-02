@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
-  "name": "IpynbFilesViewer",
-  "version": "1.0.2",
+  "name": "Ipynb Files Viewer",
+  "version": "1.0.3",
   "description": "With this plugin you can use your browser as .ipynb files viewer",
   "author": "Anton Borzenko",
 

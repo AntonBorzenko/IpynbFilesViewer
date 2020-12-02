@@ -1,4 +1,4 @@
-# IpynbFilesViewer
+# Ipynb Files Viewer
 With this plugin you can use your browser as .ipynb files viewer
 
 ## Example of work
