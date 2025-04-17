@@ -1,15 +1,15 @@
 {
   "manifest_version": 3,
   "name": "Ipynb Files Viewer",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "Open Jupyter notebooks (.ipynb) right in your browser — no downloads or extra tools needed.",
   "author": "Anton Borzenko",
 
   "permissions": [
       "webRequest",
-      "webRequestBlocking",
       "background",
-      "downloads"
+      "downloads",
+      "tabs"
   ],
   "host_permissions": [
       "<all_urls>"
@@ -18,7 +18,7 @@
     "service_worker": "ipynbHandler.js",
     "type": "module"
   },
-  "browser_action": {
+  "action": {
     "default_icon": "icon.png"
   }
 }
